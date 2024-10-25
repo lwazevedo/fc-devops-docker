@@ -71,3 +71,12 @@ docker rm $(docker ps -a -q)
 # Remove todas as imagens.
 docker rmi $(docker images -q)
 ```
+
+## Rodando as imagens com docker-compose
+
+```bash
+
+cd docker-compose
+docker-compose up -d
+
+```
