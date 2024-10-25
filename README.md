@@ -1,5 +1,11 @@
 # fc-devops-docker
 
+## Para ver como usar o healthcheck pelo docker
+
+```bash
+ git checkout feat/docker_healthcheck
+```
+
 ## Run NGINX básico (Linux/MacOS)
 
 ```bash
