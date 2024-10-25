@@ -79,7 +79,8 @@ docker rmi $(docker images -q)
 # Com imagem já existente
 cd docker-compose
 docker-compose up -d
-
+# Para execução
+docker-compose down
 
 # Build de imagem
 cd docker-compose
@@ -89,11 +90,29 @@ docker-compose -f docker-compose.build.yaml up -d
 docker-compose -f docker-compose.build.yaml up -d --build
 
 # Para execução
-docker-compose down
+docker-compose -f docker-compose.build.yaml down
 
 # Mysql
 # Imagem Mysql 8 devido arquitetura arm64
 cd docker-compose
-docker compose -f docker-compose.db.yaml up -d
+docker-compose -f docker-compose.db.yaml up -d
+docker-compose -f docker-compose.db.yaml down
 
+
+# Mysql e Node
+cd docker-compose
+docker-compose -f docker-compose.app.yaml up -d
+docker-compose -f docker-compose.app.yaml down
+
+# Acessar o container da app para fazer as modificações.
+docker exec -it app bash
+docker exec -it db bash
+
+#Logar no banco
+mysql -umy_user -pmy_password
+
+#Executar pós logar
+use nodedb;
+create table people(id int not null auto_increment, name varchar(255), primary key(id));
+desc people;
 ```
