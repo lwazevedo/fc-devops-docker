@@ -90,4 +90,10 @@ docker-compose -f docker-compose.build.yaml up -d --build
 
 # Para execução
 docker-compose down
+
+# Mysql
+# Imagem Mysql 8 devido arquitetura arm64
+cd docker-compose
+docker compose -f docker-compose.db.yaml up -d
+
 ```
