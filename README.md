@@ -84,4 +84,7 @@ docker-compose up -d
 # Build de imagem
 cd docker-compose
 docker-compose -f docker-compose.build.yaml up -d
+
+# Para execução
+docker-compose down
 ```
