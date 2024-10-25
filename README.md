@@ -1,12 +1,46 @@
-# fc-devops-docker
+# FC DEVOPS DOCKER
 
-## Para ver como usar o healthcheck pelo docker
+[Inicio](#inicio) \
+[Desafios](#desafios) \
+[Aulas](#aulas) \
+[Docker_healthcheck](#docker-health)
+
+## INICIO
+
+> [!IMPORTANT]
+> Após clonar este projeto acesse:
+
+```bash
+cd fc-devops-docker
+```
+
+## DESAFIOS
+
+> [!IMPORTANT]
+> Todos os códigos estão dentro da pasta desafios
+
+#### Golang
+
+```bash
+ # VIA DOCKERFILE
+ cd desafios/golang
+ docker build -t lwazevedo/golang-fc:prod .
+ docker run lwazevedo/golang-fc:prod
+
+# VIA DOCKER COMPOSE
+ cd desafios/golang
+ docker compose up
+```
+
+## AULAS
+
+#### DOCKER HEALTH
 
 ```bash
  git checkout feat/docker_healthcheck
 ```
 
-## Run NGINX básico (Linux/MacOS)
+#### NGINX BÁSICO
 
 ```bash
 cd nginx
@@ -14,7 +48,7 @@ docker build -t nginx:basic .
 docker run -d --name nginx_basic -p 8080:80 nginx:basic
 ```
 
-## Run Laravel básico (Linux/MacOS)
+#### LARAVEL BÁSICO
 
 ```bash
 cd laravel
@@ -22,29 +56,16 @@ docker build -t laravel:basic .
 docker run -d --name laravel_basic -p 8000:8000 laravel:basic
 ```
 
-## Run Laravel com nginx fazendo proxy reverso
-
-### Crie um rede interna
+#### LARAVEL + NGINX PROXY REVERSO
 
 ```bash
 
+# CRIAR REDE
 docker network create laranet
-
-```
-
-### Crie e rode a imagem laravel
-
-```bash
 
 cd laravel
 docker build -t laravel:prod . -f Dockerfile.prod
 docker run -d --network laranet --name laravel laravel:prod
-
-```
-
-### Crie e rode a imagem nginx
-
-```bash
 
 cd nginx
 docker build -t nginx:prod . -f Dockerfile.prod
@@ -52,7 +73,41 @@ docker run -d --network laranet --name nginx -p 8080:80 nginx:prod
 
 ```
 
-### Comandos úteis
+#### DOCKER COMPOSE
+
+```bash
+
+
+# BUILD
+cd docker-compose
+docker compose -f docker-compose.build.yaml up -d
+#OU
+docker compose -f docker-compose.build.yaml up -d --build
+# Para execução
+docker compose -f docker-compose.build.yaml down
+
+
+# MYSQL
+cd docker-compose
+docker compose -f docker-compose.db.yaml up -d
+docker compose -f docker-compose.db.yaml down
+
+
+# MYSQL COM NODE
+cd docker-compose
+docker compose -f docker-compose.app.yaml up -d
+docker compose -f docker-compose.app.yaml down
+
+# LISTA CONTAINERS DO COMPOSE
+docker compose ps
+
+# ACESSAR OS CONTAINERS CRIADOS
+docker exec -it app bash
+docker exec -it db bash
+
+```
+
+#### Comandos úteis
 
 ```bash
 
@@ -76,46 +131,4 @@ docker rm $(docker ps -a -q)
 
 # Remove todas as imagens.
 docker rmi $(docker images -q)
-```
-
-## Rodando as imagens com docker-compose
-
-```bash
-
-# Com imagem já existente
-cd docker-compose
-docker compose up -d
-
-# Para execução
-docker compose down
-
-# Build de imagem
-cd docker-compose
-docker compose -f docker-compose.build.yaml up -d
-
-# Rebuildar as imagens
-docker compose -f docker-compose.build.yaml up -d --build
-
-# Para execução
-docker compose -f docker-compose.build.yaml down
-
-# Mysql
-# Imagem Mysql 8 devido arquitetura arm64
-cd docker-compose
-docker compose -f docker-compose.db.yaml up -d
-docker compose -f docker-compose.db.yaml down
-
-
-# Mysql e Node
-cd docker-compose
-docker compose -f docker-compose.app.yaml up -d
-docker compose -f docker-compose.app.yaml down
-
-# lista todas as imagens dentro da imagem compose
-docker compose ps
-
-# Acessar o container da app para fazer as modificações.
-docker exec -it app bash
-docker exec -it db bash
-
 ```
