@@ -76,7 +76,12 @@ docker rmi $(docker images -q)
 
 ```bash
 
+# Com imagem já existente
 cd docker-compose
 docker-compose up -d
 
+
+# Build de imagem
+cd docker-compose
+docker-compose -f docker-compose.build.yaml up -d
 ```
