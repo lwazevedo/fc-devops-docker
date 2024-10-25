@@ -85,6 +85,9 @@ docker-compose up -d
 cd docker-compose
 docker-compose -f docker-compose.build.yaml up -d
 
+# Rebuildar as imagens
+docker-compose -f docker-compose.build.yaml up -d --build
+
 # Para execução
 docker-compose down
 ```
