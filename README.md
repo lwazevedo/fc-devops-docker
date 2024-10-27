@@ -43,8 +43,7 @@ cd desafios/nodejs
 docker compose up -d
 ```
 
-# depois de executar acesse:
-
+Depois de executar:
 [acesse](http://localhost:8080/)
 
 ## AULAS
