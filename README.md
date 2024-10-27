@@ -2,6 +2,8 @@
 
 [Inicio](#inicio) \
 [Desafios](#desafios) \
+[Desafios_golang](#golang) \
+[Desafios_nodejs](#nodejs) \
 [Aulas](#aulas) \
 [Docker_healthcheck](#docker-health)
 
@@ -17,7 +19,7 @@ cd fc-devops-docker
 ## DESAFIOS
 
 > [!IMPORTANT]
-> Todos os códigos estão dentro da pasta desafios
+> Todos os códigos estão dentro da pasta desafios, leia com atenção os comandos.
 
 #### Golang
 
@@ -31,8 +33,19 @@ cd fc-devops-docker
 
 # VIA DOCKER COMPOSE
  cd desafios/golang
- docker compose up
+ docker compose up -d
 ```
+
+#### NodeJS
+
+```bash
+cd desafios/nodejs
+docker compose up -d
+```
+
+# depois de executar acesse:
+
+[acesse](http://localhost:8080/)
 
 ## AULAS
 
