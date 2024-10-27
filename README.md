@@ -31,8 +31,19 @@ cd fc-devops-docker
 
 # VIA DOCKER COMPOSE
  cd desafios/golang
- docker compose up
+ docker compose up -d
 ```
+
+#### NodeJS
+
+```bash
+cd desafios/nodejs
+docker compose up -d
+```
+
+# depois de executar acesse:
+
+[acesse](http://localhost:8080/)
 
 ## AULAS
 
