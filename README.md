@@ -2,6 +2,8 @@
 
 [Inicio](#inicio) \
 [Desafios](#desafios) \
+[Desafios_golang](#golang) \
+[Desafios_nodejs](#nodejs) \
 [Aulas](#aulas) \
 [Docker_healthcheck](#docker-health)
 
@@ -17,7 +19,7 @@ cd fc-devops-docker
 ## DESAFIOS
 
 > [!IMPORTANT]
-> Todos os códigos estão dentro da pasta desafios
+> Todos os códigos estão dentro da pasta desafios, leia com atenção os comandos.
 
 #### Golang
 
